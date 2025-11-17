@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Renvy — Painel Admin</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>const s = JSON.parse(localStorage.getItem('sessionUser') || 'null'); if (!s || s.role !== 'admin') location.href = 'cliente/login.html';</script>
+</head>
+
+<body class="contrast">
+  <header class="topbar">
+    <div class="brand"><img src="assets/logo.png" alt="Renvy"> Renvy Admin</div>
+    <nav class="menu"><a href="cadastros/clientes.html">Clientes</a><a href="cadastros/veiculos.html">Veículos</a><a
+        href="cadastros/locacoes.html">Locações</a><a href="relatorios/clientes.html">Relatório Clientes</a><a
+        href="relatorios/veiculos.html">Relatório Veículos</a><a href="relatorios/locacoes.html">Relatório Locações</a>
+    </nav>
+    <button class="btn small" id="reset">Limpar dados</button>
+    <button class="btn small"
+      onclick="(localStorage.removeItem('sessionUser'),location.href='index.html')">Sair</button>
+  </header>
+  <main class="container">
+    <div class="card">
+      <h2>Bem‑vindo ao Painel</h2>
+      <p>Use o menu para acessar cadastros e relatórios.</p>
+    </div>
+  </main>
+  <footer class="footer">© 2025 Renvy Locadora — Todos os direitos reservados.</footer>
+  <script>
+    document.getElementById('reset').onclick = () => {
+      if (confirm('Isso vai apagar clientes, veículos, locações e usuários salvos neste navegador. Prosseguir?')) {
+        ['clientes', 'veiculos', 'locacoes', 'users', 'clientSession', 'sessionUser'].forEach(k => localStorage.removeItem(k));
+        alert('Dados apagados. Recarregando...'); location.reload();
+      }
+    };
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Renvy — Área do Cliente</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="contrast">
+    <header class="topbar">
+        <div class="brand"><img src="../assets/logo.png" alt="Renvy"> Área do Cliente</div>
+        <nav class="menu"><a href="../index.html">Início</a><a class="active" href="#">Alugar</a></nav>
+        <button id="logout" class="btn small">Sair</button>
+    </header>
+    <main class="container">
+        <section class="card">
+            <h2>Alugar um veículo</h2>
+            <form id="formAluguel" class="form grid-3">
+                <label>Veículo<select id="veiculoId">
+                        <option value="">Selecione…</option>
+                    </select></label>
+                <label>Retirada<input id="dataIni" type="date" required></label>
+                <label>Devolução<input id="dataFim" type="date" required></label>
+                <label>Total (R$)<input id="total" type="number" readonly></label>
+                <div class="grid-row actions"><button class="btn" type="submit">Confirmar aluguel</button></div>
+            </form>
+        </section>
+        <section class="card" style="margin-top:20px;">
+            <div class="table-actions">
+                <h3>Meus aluguéis</h3>
+            </div>
+            <table id="tabelaMeus" class="tabela"></table>
+        </section>
+    </main>
+    <footer class="footer">© 2025 Renvy Locadora — Todos os direitos reservados.</footer>
+    <script src="../js/user_rent.js"></script>
+</body>
+
+</html>

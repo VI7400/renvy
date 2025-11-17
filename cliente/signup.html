@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Renvy — Cadastro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="contrast">
+  <header class="topbar">
+    <div class="brand"><img src="../assets/logo.png" alt="Renvy"> Renvy</div>
+    <nav class="menu"><a href="../index.html">Início</a><a href="login.html">Login</a><a class="active"
+        href="signup.html">Cadastrar</a></nav>
+  </header>
+  <main class="container narrow">
+    <form id="signupForm" class="card form">
+      <h2>Criar conta</h2>
+      <label>Nome<input id="nome" required></label>
+      <label>E-mail<input id="email" type="email" required></label>
+      <label>Telefone<input id="telefone" required placeholder="(xx) xxxxx-xxxx"></label>
+      <label>CPF<input id="cpf" inputmode="numeric" maxlength="11" placeholder="Somente números" required></label>
+      <label>Senha<input id="senha" type="password" required></label>
+      <button class="btn" type="submit">Cadastrar</button>
+    </form>
+  </main>
+  <footer class="footer">© 2025 Renvy Locadora — Todos os direitos reservados.</footer>
+  <script>
+    const cpfEl = document.getElementById('cpf');
+    cpfEl.addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, '').slice(0, 11); });
+  </script>
+  <script src="../js/user_auth.js"></script>
+</body>
+
+</html>

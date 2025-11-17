@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Renvy — Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="contrast">
+    <header class="topbar">
+        <div class="brand"><img src="../assets/logo.png" alt="Renvy"> Renvy</div>
+        <nav class="menu"><a href="../index.html">Início</a><a class="active" href="login.html">Login</a><a
+                href="signup.html">Cadastrar</a></nav>
+    </header>
+    <main class="container narrow">
+        <form id="loginForm" class="card form">
+            <h2>Entrar</h2>
+            <label>E-mail ou usuário<input id="email" placeholder="ex.: seu@email.com ou admin" required></label>
+            <label>Senha<input id="senha" type="password" required></label>
+            <button class="btn" type="submit">Entrar</button>
+            <div id="msg" class="muted"></div>
+        </form>
+    </main>
+    <footer class="footer">© 2025 Renvy Locadora — Todos os direitos reservados.</footer>
+    <script src="../js/user_auth.js"></script>
+</body>
+
+</html>

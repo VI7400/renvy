@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Renvy — Relatório de Locações</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script>const s = JSON.parse(localStorage.getItem('sessionUser') || 'null'); if (!s || s.role !== 'admin') location.href = '../cliente/login.html';</script>
+</head>
+
+<body class="contrast">
+    <header class="topbar">
+        <div class="brand"><img src="../assets/logo.png" alt="Renvy"> Relatório de Locações</div>
+        <nav class="menu"><a href="../admin.html">Painel</a><a href="../cadastros/locacoes.html">Cadastro</a></nav>
+    </header>
+    <main class="container">
+        <section class="card"><input id="busca" placeholder="Buscar" />
+            <table id="tabela" class="tabela"></table>
+        </section>
+    </main>
+    <footer class="footer">© 2025 Renvy Locadora — Todos os direitos reservados.</footer>
+    <script src="../js/storage.js"></script>
+    <script src="../js/utils.js"></script>
+    <script>
+        const clientes = indexById(getArray('clientes')); const veiculos = indexById(getArray('veiculos'));
+        const dados = getArray('locacoes').map(l => ({ id: l.id, cliente: clientes[l.clienteId]?.nome || '—', veiculo: veiculos[l.veiculoId]?.modelo || '—', retirada: l.dataIni, devolucao: l.dataFim, diaria: Number(l.diaria).toFixed(2), total: Number(l.total).toFixed(2), status: l.status || 'ativa' }));
+        const tabela = document.getElementById('tabela'); function render(d) { renderTable(tabela, d, ['id', 'cliente', 'veiculo', 'retirada', 'devolucao', 'diaria', 'total', 'status']); }
+        render(dados); document.getElementById('busca').oninput = () => { const q = busca.value.toLowerCase(); render(dados.filter(x => x.cliente.toLowerCase().includes(q) || x.veiculo.toLowerCase().includes(q))); };
+    </script>
+</body>
+
+</html>

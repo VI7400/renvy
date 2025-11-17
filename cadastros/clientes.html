@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Renvy — Clientes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script>const s = JSON.parse(localStorage.getItem('sessionUser') || 'null'); if (!s || s.role !== 'admin') location.href = '../cliente/login.html';</script>
+</head>
+
+<body class="contrast">
+    <header class="topbar">
+        <div class="brand"><img src="../assets/logo.png" alt="Renvy"> Clientes</div>
+        <nav class="menu"><a href="../admin.html">Painel</a><a class="active" href="#">Cadastro</a><a
+                href="../relatorios/clientes.html">Relatório</a></nav>
+    </header>
+    <main class="container">
+        <form id="formCliente" class="card form grid-2">
+            <input type="hidden" id="id" />
+            <label>Nome<input id="nome" required></label>
+            <label>CPF<input id="cpf" required placeholder="Somente números"></label>
+            <label>Telefone<input id="telefone" required placeholder="(xx) xxxxx-xxxx"></label>
+            <label>E-mail<input id="email" type="email"></label>
+            <div class="grid-row actions"><button class="btn" type="submit">Salvar</button><button class="btn ghost"
+                    type="reset">Limpar</button></div>
+        </form>
+        <section class="card"><input id="busca" placeholder="Buscar por nome ou CPF" />
+            <table id="tabelaClientes" class="tabela"></table>
+        </section>
+    </main>
+    <footer class="footer">© 2025 Renvy Locadora — Todos os direitos reservados.</footer>
+    <script src="../js/storage.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/clientes.js"></script>
+</body>
+
+</html>
